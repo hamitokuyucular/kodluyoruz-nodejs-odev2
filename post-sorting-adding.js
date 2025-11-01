@@ -29,25 +29,21 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-async function showPosts() {
-  try {
-    listOfPosts();
-    rl.question("\nPost başlığını giriniz: ", (newTitle) => {
-      rl.question("Post içeriğini yazınız: ", (newContent) => {
-        console.log()
-        addPost({title: `${newTitle}`, content: `${newContent}`})
+function showPosts() {
+  listOfPosts();
+  rl.question("\nPost başlığını giriniz: ", (newTitle) => {
+    rl.question("Post içeriğini yazınız: ", async (newContent) => {
+      try {
+        await addPost({ title: `${newTitle}`, content: `${newContent}` });
+        console.log();
         listOfPosts();
+      } catch (error) {
+        console.log("Hata: ", error);
+      } finally {
         rl.close();
-      })
-    })
-
-  } catch (error) {
-    console.log(error)
-  }
+      }
+    });
+  });
 }
 
 showPosts();
-
-
-
-
