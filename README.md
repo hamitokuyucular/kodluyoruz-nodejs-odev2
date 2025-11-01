@@ -1,2 +1,3 @@
-# kodluyoruz-nodejs-odev2
-Post Sıralama ve Post Ekleme
+## Kodluyoruz Node.js Ödev-2
+
+* [Patika](https://academy.patika.dev/tr/dashboard)
